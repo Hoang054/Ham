@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function swap(a, b) {
+            let tam = a.cho;
+            a.cho = b.meo;
+            b.meo = tam;
+
+        }
+        let a = { cho: prompt("nhap so dau") };
+        let b = { meo: prompt("nhap so sau") };
+        swap(a, b);
+        document.write("a = " + a.cho + " b = " + b.meo);
+    </script>
+</body>
+
+</html>

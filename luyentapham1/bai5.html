@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let mang1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let mang2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        function ham() {
+            let chuoi = prompt('nhap ten ngoi sao');
+            return chuoi;
+        }
+        let chuoimoi=ham();
+        let check= false;
+        for(i=0;i<mang1.length;i++){
+            
+            if(mang1[i]==chuoimoi){
+                document.write(mang2[i]);
+                check = true;
+            }
+        }if(check==false){
+            document.write('khong trung khop')
+        }
+    </script>
+</body>
+
+</html>

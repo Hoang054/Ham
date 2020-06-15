@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function kiemtra(){
+        let mang=[];
+        let dem=0;
+        let kitu= prompt('nhap ki tu bat ki');
+        let n= prompt('nhap chieu dai mang');
+        for(i=0;i<n;i++){
+            mang.push(prompt('nhap phan tu mang'));
+        }
+        for(i=0;i<n;i++){
+            if(mang[i]==kitu){
+            dem++;
+        }}
+        if((dem!=0)){
+            return dem;
+        }
+        else{
+            return -1;
+        }
+        }
+         document.write(kiemtra());
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>chuyển từ foot sang meter</p>
+    <input type="text" oninput="nhapfoot(this.value)"
+    onchange="nhapfoot(this.value)">
+    <p id="xuat1">meter:</p>
+    <p>chuyển từ meter sang foot</p>
+    <input type="text" oninput="nhapm(this.value)"
+    onchange="nhapm(this.value)">
+    <p id="xuat2">foot:</p>
+    <script>
+        function footToMeter(foot){
+            let m=0.305*foot;
+            document.getElementById("xuat1").innerHTML = "meter: "+ m
+        }
+        function meterToFoot(m){
+            let foot=3.279*m;
+            document.getElementById("xuat2").innerHTML = "foot: " +foot
+        }
+        function nhapfoot(n){
+            n =parseFloat(n)
+            footToMeter(n);
+        }
+        function nhapm(n){
+            
+            meterToFoot(n);
+        }
+
+    </script>
+</body>
+</html>
