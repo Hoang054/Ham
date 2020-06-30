@@ -16,20 +16,21 @@
           <div>
               <input id="them" type="text" placeholder="New Product" style="width: 400px;" >
               <input type="button" value="Add" onclick="them()">
+
+              <input type="button" value="Edit" onclick="edit()">
             </div>
             <h2>Display All Product</h2>
-            <table class="table table-borderless" > 
-                <tr style="font-weight: bold;">
-                    <td>Product Name</td>
-                    <td class="Product" >9 Product</td>
-                </tr>
-                <tr><td>Sony Xperia</td>
-                    <td><input type="button" name="" id="" value="Edit">
-                    <input type="button" value="Delete"></td>
-                </tr>
-                <tr><td id ="ghi1"></td><td id="muc1"></td></tr>
-                <tr><td id ="ghi2"></td><td id="muc2"></td></tr>
-                <tr><td id ="ghi3"></td><td id="muc3"></td></tr>  
+            <table class="table table-striped"   > 
+                <thead style="font-weight: bold;">
+                    <tr>
+                        <td>Product Name</td>
+                        <td> Product</td>
+                    </tr>
+                </thead>
+                <tbody id='table'>
+
+                </tbody>
+                
             </table>
         </div>
         <script>
@@ -38,26 +39,34 @@
             }
             let mang=[];
             let x=0;
-            function themhang(){
-                mang[x]=document.getElementById('them').value;
-                x++;
-                let tam= '<tr>';
-                let e= document.getElementById(`ghi${i}`);
-                for(i=0;i<x;i++){
-                tam += `${mang[i]}</tr>`;
-                }
-                e.innerHTML = tam;
-                document.getElementById('them').value= "";
-            
-                if(tam!=null){
-                    document.getElementById(`muc${i}`).innerHTML = `<button>Edit</button><button>Delete</button>`
-                }
-                
-            }for(i=1;i<=x;i++){
-            
-        }
-            function hamxuat(){
+            x++;
 
+            var currentIndex = null;
+
+            function drawTable(){
+                let str = "";
+                for(let i =0; i<mang.length;i++){
+                    str+= `<tr><td id="thaydoi${i}">${mang[i]}</td><td><button type='button' class='btn btn-success' onclick="sua(${i})">Edit</button>
+                        <button type='button' class='btn btn-danger' onclick='xoa(${i})'>Delete</button></td></tr>`;
+                }
+                document.getElementById('table').innerHTML =str;
+            }
+            function themhang(){
+                mang.push(document.getElementById('them').value);
+                document.getElementById("them").value="";
+                drawTable();
+            }
+            function xoa(i){
+                mang.splice(i,1);
+                drawTable();
+            }
+            function sua(i){
+                document.getElementById("them").value=mang[i];
+                currentIndex = i
+            }
+            function edit(){
+                mang[currentIndex]= document.getElementById('them').value;
+                drawTable();
             }
         </script>
   </body>
